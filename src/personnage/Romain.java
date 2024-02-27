@@ -18,12 +18,12 @@ public class Romain
 
 	public void parler(String texte) 
 	{
-		System.out.println(prendreParole() + "<<" + texte + ">>");
+		System.out.println(prendreParole() + " << " + texte + " >> ");
 	}
 
 	private String prendreParole() 
 	{
-		return ("Le Romain" + nom + ":");
+		return ("Le Romain " + nom + " : ");
 	}
 
 	public void recevoirCoup(int forceCoup) 
@@ -31,11 +31,22 @@ public class Romain
 		force = force - forceCoup;
 		if(force > 0) 
 		{
-			parler("Aïe");
+			parler("Aie");
 		} 
 		else 
 		{
 			parler("J'abandonne...");
 		}
+	}
+	
+	public static void main (String[] args)
+	{
+		Romain cesar = new Romain ("Cesar", 5);
+		
+		cesar.prendreParole();
+		
+		cesar.parler("Je suis le gouverneur des Romains");
+		
+		cesar.recevoirCoup(4);
 	}
 }
