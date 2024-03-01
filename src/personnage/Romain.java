@@ -52,5 +52,8 @@ public class Romain
 		cesar.recevoirCoup(4);
 		
 		Romain minus = new Romain("Minus",6);
+		
+		System.out.println(Equipement.CASQUE);
+		System.out.println(Equipement.BOUCLIER);
 	}
 }

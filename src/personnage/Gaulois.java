@@ -58,7 +58,6 @@ public class Gaulois
 		
 		asterix.parler("Je suis Asterix et je peux parler");
 		
-		asterix.prendreParole();
 	}
 	
 }
