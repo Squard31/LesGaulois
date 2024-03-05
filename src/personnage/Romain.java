@@ -44,6 +44,37 @@ public class Romain
 		assert force < force + forceCoup;
 	}
 	
+	public void sEquiper(Equipement equipe)
+	{
+		switch (nbEquipement)
+		{
+		case 0:
+			equipement[0] = equipe;
+			nbEquipement = nbEquipement + 1;
+			System.out.println("Le soldat " + nom + "s'équipe avec un " + equipe);
+			break;
+			
+		case 1:
+			if (equipe == equipement[0])
+			{
+				System.out.println("Le soldat " + nom + "possède déjà " + equipe + " ! ");
+				break;
+			}
+			else
+			{
+				equipement[1] = equipe;
+				nbEquipement = nbEquipement + 1;
+				System.out.println("Le soldat" + nom + "s'équipe avec un" + equipe);
+				break;
+			}
+			
+		case 2:
+			System.out.println("Le soldat" + nom + "est déjà bien protégé");
+			break;
+		}
+	}
+	
+	
 	public static void main (String[] args)
 	{
 		Romain cesar = new Romain ("Cesar", 5);
@@ -55,7 +86,11 @@ public class Romain
 		
 		Romain minus = new Romain("Minus",6);
 		
-		System.out.println(Equipement.CASQUE);
-		System.out.println(Equipement.BOUCLIER);
+		cesar.sEquiper(Equipement.CASQUE);
+		cesar.sEquiper(Equipement.CASQUE);
+		cesar.sEquiper(Equipement.BOUCLIER);
+		cesar.sEquiper(Equipement.BOUCLIER);
+		
+		System.out.println(cesar.equipement[1]);
 	}
 }
