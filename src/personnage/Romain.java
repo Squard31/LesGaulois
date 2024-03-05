@@ -4,6 +4,8 @@ public class Romain
 {
 	private String nom;
 	private int force;
+	private Equipement[] equipement = new Equipement[2];
+	private int nbEquipement = 0;
 
 	public Romain(String nom, int force) 
 	{
