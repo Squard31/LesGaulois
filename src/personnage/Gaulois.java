@@ -6,7 +6,7 @@ public class Gaulois
 	private int force;
 	private int nbTrophee;
 	private int effetPotion = 1;
-	private Equipement[] trophee = new Equipement[100];
+	private Equipement[] trophees = new Equipement[100];
 	
 	public Gaulois (String nom, int force) 
 	{
@@ -34,22 +34,11 @@ public class Gaulois
 		return ("Le gaulois " + nom + " : ");
 	}
 	
-//	public void frapper(Romain romain) 
-//	{
-//		int forceCoup = force / 3 * effetPotion;
-//		System.out.println(nom + " envoie un grand coup dans la machoire de " + romain.getNom());
-//		romain.recevoirCoup(forceCoup);
-//	}
-	
 	public void frapper(Romain romain) 
 	{
-		System.out.println(nom + " envoie un grand coup dans la m�choire de " + romain.getNom());
-		Equipement[] trophees = romain.recevoirCoup((force / 3) * effetPotion);
-		
-		for (int i = 0; trophees != null && i < trophees.length; i++,nbTrophee++) 
-		{		
-		this.trophee[nbTrophee] = trophees[i];
-		}
+		int forceCoup = force / 3 * effetPotion;
+		System.out.println(nom + " envoie un grand coup dans la machoire de " + romain.getNom());
+		romain.recevoirCoup(forceCoup);
 	}
 
 	
@@ -68,6 +57,29 @@ public class Gaulois
 	public int getForce()
 	{
 		return force;
+	}
+	
+	
+	// METHODE faireUneDonnation
+	
+	public void faireUneDonnation(Musee musee)
+	{
+		if (nbTrophee > 0)
+		{
+			System.out.println("Le gaulois : " + nom + "Je donne au musee tous mes trophees : ");
+			
+			for (int i = 0 ; i < nbTrophee ; i++)
+			{
+				musee.donnerTrophees(this, trophees[i].getEquipement());
+				trophees[i] = null;
+			}
+			nbTrophee = 0;
+		}
+		else
+		{
+			System.out.println("Le gaulois : " + nom + "Je donne au musee tous mes trophees : ");
+		}
+		
 	}
 	
 	
