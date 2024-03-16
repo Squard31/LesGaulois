@@ -1,20 +1,16 @@
-package personnage;
+public enum Equipement{
 
-public enum Equipement 
-
-{CASQUE("casque"),BOUCLIER("boucliers");
+	CASQUE("casque"), BOUCLIER("bouclier");
 	
-private String nom;
+	private String nom ;
 
-private Equipement(String nom)
-{
-	this.nom = nom;
-}
+	private Equipement(String nom) 
+	{
+		this.nom = nom;
+	}
 
-public String toString()
-{
+	public String toString()
+	{
 		return nom;
-}
-
-
+	}
 }
