@@ -20,6 +20,11 @@ public class Romain
 	{
 		return nom;
 	}
+	
+	public int getForce()
+	{
+		return force;
+	}
 
 	public void parler(String texte)
 	{
@@ -145,13 +150,12 @@ public class Romain
 		Equipement[] equipementEjecte = new Equipement[nbEquipement];
 		String message = "L'equipement de " + nom.toString() + "s'envole sous la force du coup." ;
 		System.out.println(message);
-		//TODO
 		int nbEquipementEjecte = 0;
 		for (int i = 0; i < nbEquipement; i++) 
 		{
 			if (equipements[i] == null) 
 			{
-				continue;
+				return null;
 			} 
 			else 
 			{
