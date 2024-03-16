@@ -82,6 +82,20 @@ public class Gaulois
 		
 	}
 	
+	// METHODE "extraireInstructionOcaml"
+	
+	public String extraireInstructionsOCaml() 
+	{
+	    String ocaml = "let musee = [\n";
+	    for (int i = 0; i < nbTrophee; i++) 
+	    {
+	        ocaml += "\"" + trophees[i][0] + "\", \"" + trophees[i][1] + "\"\n";
+	    }
+	    ocaml += "]";
+	    return ocaml;
+	}
+
+	
 	
 	public static void main(String[] args) 
 	{
@@ -89,6 +103,7 @@ public class Gaulois
 		System.out.println(asterix);
 		
 		asterix.parler("Je suis Asterix et je peux parler");
+		
 		
 	}
 	
