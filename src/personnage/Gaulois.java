@@ -1,11 +1,15 @@
 package personnage;
 
+import villagegaulois.Musee;
+import personnage.Trophee;
+import personnage.Equipement;
+
 public class Gaulois 
 {
 	private String nom;
 	private int force;
-	private int nbTrophee;
 	private int effetPotion = 1;
+	private int nbTrophee;
 	private Equipement[] trophees = new Equipement[100];
 	
 	public Gaulois (String nom, int force) 
@@ -34,11 +38,21 @@ public class Gaulois
 		return ("Le gaulois " + nom + " : ");
 	}
 	
+//	public void frapper(Romain romain) 
+//	{
+//		int forceCoup = force / 3 * effetPotion;
+//		System.out.println(nom + " envoie un grand coup dans la machoire de " + romain.getNom());
+//		romain.recevoirCoup(forceCoup);
+//	}
+	
 	public void frapper(Romain romain) 
 	{
-		int forceCoup = force / 3 * effetPotion;
-		System.out.println(nom + " envoie un grand coup dans la machoire de " + romain.getNom());
-		romain.recevoirCoup(forceCoup);
+		System.out.println(nom + " envoie un grand coup dans la mâchoire de " + romain.getNom());
+		Equipement[] tropheesRecuperes = romain.recevoirCoup((force / 3) * effetPotion);
+		for (int i = 0; tropheesRecuperes != null && i < tropheesRecuperes.length; i++, nbTrophee++) 
+		{
+			this.trophees[nbTrophee] = tropheesRecuperes[i];
+		}
 	}
 
 	
@@ -89,11 +103,15 @@ public class Gaulois
 	    String ocaml = "let musee = [\n";
 	    for (int i = 0; i < nbTrophee; i++) 
 	    {
-	        ocaml += "\"" + trophees[i][0] + "\", \"" + trophees[i][1] + "\"\n";
+	        Equipement equip = trophees[i];
+	        Trophee troph = new Trophee(this, equip);
+	        ocaml += "\"" + troph.getGaulois().getNom() + "\", \"" + troph.getEquipement().getNom() + "\"\n";
 	    }
 	    ocaml += "]";
 	    return ocaml;
 	}
+
+
 
 	
 	

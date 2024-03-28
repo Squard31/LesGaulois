@@ -16,30 +16,28 @@ public class Trophee
 	
 	// LES GUETTEURS
 	
-	public Gaulois getNom()
+	
+	// METHODE "getGaulois"
+	
+	public Gaulois getGaulois()
 	{
 		return gaulois;
 	}
+	
+	
+	// METHODE "getEquipement"
 	
 	public Equipement getEquipement()
 	{
 		return equipement;
 	}
 	
+	
 	// METHODE donnerNom
 	
-	public static void donnerNom(Gaulois gaulois)
+	public String donnerNom(Gaulois gaulois)
 	{
-		 System.out.println("Le nom du Gaulois est " + gaulois.getNom());		
-	}
-	
-	// LE MAIN POUR TESTER
-	
-	public static void main(String[] args)
-	{
-		// TEST pour le "donnerNom"
-		Gaulois eliott = new Gaulois ("Eliott", 8);
-		donnerNom(eliott);
+		 return gaulois.getNom();	
 	}
 	
 }

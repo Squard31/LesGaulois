@@ -8,34 +8,50 @@ public class Romain
 	private int nbEquipement = 0;
 	private String texte;
 
+	// CONSTRUCTEUR "Romain"
+	
 	public Romain(String nom, int force) 
 	{
+		assert (force > 0);
 		this.nom = nom;
-		// Precondition
-		assert force > 0;
 		this.force = force;
 	}
 
+	
+	// METHODE "getNom"
+	
 	public String getNom() 
 	{
 		return nom;
 	}
+	
+	
+	// METHODE "getForce"
 	
 	public int getForce()
 	{
 		return force;
 	}
 
+	
+	// METHODE "parler"
+	
 	public void parler(String texte)
 	{
 		System.out.println(prendreParole() + " << " + texte + " >> ");
 	}
 
+	
+	
+	// METHODE "prendreParole"
+	
 	private String prendreParole() 
 	{
 		return ("Le Romain " + nom + " : ");
 	}
 
+	
+	
 //	public void recevoirCoup(int forceCoup) 
 //	{
 //		assert force > 0;
@@ -50,36 +66,8 @@ public class Romain
 //		}
 //	}
 	
-	public void sEquiper(Equipement equipe)
-	{
-		switch (nbEquipement)
-		{
-		case 0:
-			equipements[0] = equipe;
-			nbEquipement = nbEquipement + 1;
-			System.out.println("Le soldat " + nom + "s'�quipe avec un " + equipe);
-			break;
-			
-		case 1:
-			if (equipe == equipements[0])
-			{
-				System.out.println("Le soldat " + nom + "poss�de d�j� " + equipe + " ! ");
-				break;
-			}
-			else
-			{
-				equipements[1] = equipe;
-				nbEquipement = nbEquipement + 1;
-				System.out.println("Le soldat" + nom + "s'�quipe avec un" + equipe);
-				break;
-			}
-			
-		case 2:
-			System.out.println("Le soldat" + nom + "est d�j� bien prot�g�");
-			break;
-		}
-	}
 	
+	// METHODE "recevoirCoup"
 	
 	public Equipement[] recevoirCoup(int forceCoup) 
 	{
@@ -116,6 +104,8 @@ public class Romain
 	}
 	
 	
+	// METHODE "calculerResistanceEquipement"
+	
 	private int calculResistanceEquipement(int forceCoup) 
 	{
 		texte = "Ma force est de " + this.force + ", et la force du coup est de " + forceCoup;
@@ -142,8 +132,10 @@ public class Romain
 		forceCoup -= resistanceEquipement;
 		return forceCoup;	
 	}
-
-
+	
+	
+	//METHODE "ejecterEquipement"
+	
 	private Equipement[] ejecterEquipement() 
 	{
 		Equipement[] equipementEjecte = new Equipement[nbEquipement];
@@ -168,6 +160,41 @@ public class Romain
 	}
 	
 	
+	// METHODE "sEquiper"
+	
+	public void sEquiper(Equipement equipe)
+	{
+		switch (nbEquipement)
+		{
+		case 0:
+			equipements[0] = equipe;
+			nbEquipement = nbEquipement + 1;
+			System.out.println("Le soldat " + nom + "s'�quipe avec un " + equipe);
+			break;
+			
+		case 1:
+			if (equipe == equipements[0])
+			{
+				System.out.println("Le soldat " + nom + "poss�de d�j� " + equipe + " ! ");
+				break;
+			}
+			else
+			{
+				equipements[1] = equipe;
+				nbEquipement = nbEquipement + 1;
+				System.out.println("Le soldat" + nom + "s'�quipe avec un" + equipe);
+				break;
+			}
+			
+		case 2:
+			System.out.println("Le soldat" + nom + "est d�j� bien prot�g�");
+			break;
+		}
+	}
+	
+	
+	
+	// Le main
 	
 	public static void main (String[] args)
 	{

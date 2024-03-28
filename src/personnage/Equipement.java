@@ -1,4 +1,7 @@
-public enum Equipement{
+package personnage;
+
+public enum Equipement
+{
 
 	CASQUE("casque"), BOUCLIER("bouclier");
 	
@@ -8,9 +11,20 @@ public enum Equipement{
 	{
 		this.nom = nom;
 	}
-
-	public String toString()
+	
+	public String toString ()
 	{
 		return nom;
 	}
+
+	public String getNom()
+	{
+		return nom;
+	}
+
+	public Equipement getEquipement() 
+	{
+		return this;
+	}
+	
 }

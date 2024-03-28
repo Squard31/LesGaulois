@@ -1,5 +1,7 @@
 package personnage;
 
+import java.util.Iterator;
+
 public class Village 
 {
 	private String nom;
@@ -51,7 +53,7 @@ public class Village
 	
 	public void afficherVillageois ()
 	{
-		System.out.println("Dans village vivent les légendaires Gaulois : " + chef.getNom());
+		System.out.println("Dans village vivent les lï¿½gendaires Gaulois : " + chef.getNom());
 		for (int i = 0 ; i < nbVillageois ; i++)
 		{
 			System.out.println(villageois[i].getNom());
@@ -61,17 +63,17 @@ public class Village
 	
 	public static void main(String[] args)
 	{
-		Village village = new Village("Village des irréductibles",30);
+		Village village = new Village("Village des irrï¿½ductibles",30);
 		
 		// Gaulois gaulois = village.trouverHabitant(30);
-		// Car on a village de maximum 30 place et comme un tableau part de 0, alors le 30 correspond au 31ème
+		// Car on a village de maximum 30 place et comme un tableau part de 0, alors le 30 correspond au 31ï¿½me
 		
 		Gaulois asterix = new Gaulois("Asterix", 8);
 		village.ajouterHabitant(asterix);
 		
 		// Gaulois gaulois = village.trouverHabitant(1);
 		// System.out.println(gaulois);
-		// Car quand on ajoute le premier villageois il se met à l'indice 0 et pas l'indice 1
+		// Car quand on ajoute le premier villageois il se met ï¿½ l'indice 0 et pas l'indice 1
 		
 		Gaulois obelix = new Gaulois("Obelix",25);
 		village.ajouterHabitant(obelix);
